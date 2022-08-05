@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBB Feeds</title>
+</head>
+<body>
+    <h1>BBC Headlines</h1>
+
+    {% for feed in feeds %}
+
+    <h2>{{ feed.get("title") }} (<i>{{ feed.get("published") }}</i>)</h2>
+
+    <p>{{ feed.get("summary") }}</p>
+
+    {% endfor %}
+</body>
+</html>
