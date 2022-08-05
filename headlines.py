@@ -10,15 +10,12 @@ RSS_FEEDS = {
     'iol': 'http://www.iol.co.za/cmlink/1.640'
 }
 
-def get_feed(rss):
-    return feedparser.parse(rss)
 
 @app.route('/<rss>')
 def get_news(rss):
-    feed = get_feed(RSS_FEEDS[rss])
+    feed = feedparser.parse(RSS_FEEDS[rss])
 
-    feeds = feed['entries']
-    return render_template("index.html", rss=rss, feeds=feeds)
+    return render_template("index.html", rss=rss, articles=feed['entries'])
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)

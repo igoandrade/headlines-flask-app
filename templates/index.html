@@ -9,11 +9,13 @@
 <body>
     <h1>{{ rss|upper }} Headlines</h1>
 
-    {% for feed in feeds %}
+    {% for article in articles %}
 
-    <h2>{{ feed.get("title") }} (<i>{{ feed.get("published") }}</i>)</h2>
+    <b><a href="{{article.link}}">{{article.title}}</a></b><br>
 
-    <p>{{ feed.get("summary") }}</p>
+    <i>{{ article.published }}</i>)
+
+    <p>{{ article.summary }}</p><hr>
 
     {% endfor %}
 </body>
